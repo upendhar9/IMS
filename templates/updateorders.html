@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .form-group button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Order</h2>
+        <form action="/update-orders" method="POST">
+            <div class="form-group">
+                <label for="order_id">Order ID:</label>
+                <input type="text" id="order_id" name="order_id" required>
+            </div>
+            <div class="form-group">
+                <label for="change">Change:</label>
+                <select id="change" name="change" required>
+                    <option value="PRODUCT_ID">Product ID</option>
+                    <option value="CUSTOMER_ID">Customer ID</option>
+                    <option value="QUANTITY">Quantity</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="newvalue">New Value:</label>
+                <input type="text" id="newvalue" name="newvalue" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Update Order</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

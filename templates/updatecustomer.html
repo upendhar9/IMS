@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Customers</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .table-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #fff;
+            color: #fff;
+        }
+        
+        th {
+            background-color: #FFA500;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .slide-in {
+            animation: slideIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Customer</h1>
+        <form method="POST" action="/update-customer">
+            <div class="form-group">
+                <label for="customerid">Customer ID:</label>
+                <input type="text" id="customerid" name="customerid" required>
+            </div>
+            <div class="form-group">
+                <label for="change">Change:</label>
+                <select id="change" name="change">
+                    <option value="customer_name">Customer Name</option>
+                    <option value="customer_addr">Customer Address</option>
+                    <option value="customer_email">Customer Email</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="newvalue">New Value:</label>
+                <input type="text" id="newvalue" name="newvalue" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

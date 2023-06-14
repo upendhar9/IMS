@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Customers</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .table-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #fff;
+            color: #fff;
+        }
+        
+        th {
+            background-color: #FFA500;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .slide-in {
+            animation: slideIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+  <h1>Show Products</h1>
+
+  <table id="product-table">
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Supplier ID</th>
+    </tr>
+    {% for product in data %}
+    <tr>
+      <td>{{ product.PRODUCT_ID }}</td>
+      <td>{{ product.PRODUCT_NAME }}</td>
+      <td>{{ product.PRICE }}</td>
+      <td>{{ product.STOCK }}</td>
+      <td>{{ product.SUPPLIER_ID }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <script>
+    // JavaScript code
+    // Fetch products from the Flask backend
+    fetch('/showproduct')
+      .then(response => response.json())
+      .then(data => {
+        // Store the data in a JavaScript variable
+        const products = data;
+        
+        // Get the table element
+        const table = document.getElementById('product-table');
+
+        // Generate HTML rows for each product
+        products.forEach(product => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${product.PRODUCT_ID}</td>
+            <td>${product.PRODUCT_NAME}</td>
+            <td>${product.PRICE}</td>
+            <td>${product.STOCK}</td>
+            <td>${product.SUPPLIER_ID}</td>
+          `;
+          table.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  </script>
+</body>
+</html>
