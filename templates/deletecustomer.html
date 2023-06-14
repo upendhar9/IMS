@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Show Supplier</title>
+    <title>Delete Customer</title>
     <style>
         /* CSS Styles */
         body {
@@ -65,23 +65,17 @@
     </style>
 </head>
 <body>
-  <h1>Show Suppliers</h1>
-
-  <table id="supplier-table">
-    <tr>
-      <th>Supplier ID</th>
-      <th>Supplier Name</th>
-      <th>Supplier Address</th>
-      <th>Supplier Email</th>
-    </tr>
-    {% for supplier in data %}
-    <tr>
-      <td>{{ supplier.SUPPLIER_ID }}</td>
-      <td>{{ supplier.SUPPLIER_NAME }}</td>
-      <td>{{ supplier.SUPPLIER_ADDR }}</td>
-      <td>{{ supplier.SUPPLIER_MAIL }}</td>
-    </tr>
-    {% endfor %}
-  </table>
+  <div class="container animate__animated animate__fadeIn">
+    <h2>Delete Customer</h2>
+    <form action="/delete-customer" method="POST" class="animated-container fade-in">
+      <div class="form-group">
+        <label for="customerid">Customer ID:</label>
+        <input type="text" id="customerid" name="customerid" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Delete">
+      </div>
+    </form>
+  </div>
 </body>
 </html>

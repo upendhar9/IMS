@@ -3,7 +3,7 @@
 <head>
   <style>
         body {
-            background-image: url("https://media.istockphoto.com/id/1311600080/photo/small-shipping-packages-on-a-notebook-with-the-inscription-online-shopping.jpg?s=612x612&w=0&k=20&c=vDPqIQsqzCvEaEZF2R5IeGz_8Gv-YRI_HzbKux8TaqM=");
+            background-image: url("https://www.deccanherald.com/sites/dh/files/styles/article_detail/public/articleimages/2020/07/01/file7a522tkb2at18s5vm7sd-1593545085.jpg?itok=q45yO6U2");
             background-size: cover;
             background-position: unset;
             background-repeat: no-repeat;
@@ -11,7 +11,6 @@
             height: auto;
             width: auto;
         }
-
     .container {
       max-width: 400px;
       margin: 0 auto;
@@ -45,13 +44,13 @@
     }
 
     .form-group input[type="submit"] {
-      background-color: #f44336;
+      background-color: #ff4d4d;
       color: white;
       cursor: pointer;
     }
 
     .form-group input[type="submit"]:hover {
-      background-color: #d32f2f;
+      background-color: #ff3333;
     }
 
     /* CSS Animations */
@@ -75,22 +74,17 @@
   </style>
 </head>
 <body>
-  <h1>Add Product</h1>
-
-  <form id="add-product-form" action="/add product" method="POST">
-    <label for="name">Product Name</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="price">Price</label>
-    <input type="number" id="price" name="price" required>
-
-    <label for="stock">Stock</label>
-    <input type="number" id="stock" name="stock" required>
-
-    <label for="id">Supplier ID</label>
-    <input type="text" id="id" name="id" required>
-
-    <button type="submit">Add Product</button>
-  </form>
+  <div class="container animate__animated animate__fadeIn">
+    <h2>Delete Orders</h2>
+    <form action="/delete-orders" method="POST" class="animated-container fade-in">
+      <div class="form-group">
+        <label for="ordersid">Order ID:</label>
+        <input type="text" id="ordersid" name="ordersid" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Delete">
+      </div>
+    </form>
+  </div>
 </body>
 </html>
